@@ -46,6 +46,13 @@ Außerdem muss der **Admin** vorher folgende Einladungen rausschicken:
 
 ---
 
+## Begriffsübersicht
+
+Stolperst du über Fachbegriffe wie *CLI*, *Push*, *Repository* oder *MCP*?
+👉 [Glossar](glossar.html)
+
+---
+
 ## Hinweise
 
 - Die Reihenfolge der Kapitel ist **wichtig**. Spätere Schritte setzen auf vorherigen auf.
