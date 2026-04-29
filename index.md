@@ -49,6 +49,14 @@ Außerdem muss der **Admin** vorher folgende Einladungen rausschicken:
 
 ---
 
+## Nach dem Setup
+
+Erst wenn alle 6 Kapitel sauber durchlaufen sind, lohnt sich ein Blick auf:
+
+- [Weitere KI Features](07-weitere-ki-features.html) – z. B. der **Cockpit-Skill** in Claude für Massen-Anfragen über alle Center hinweg.
+
+---
+
 ## Begriffsübersicht
 
 Stolperst du über Fachbegriffe wie *CLI*, *Push*, *Repository* oder *MCP*?
