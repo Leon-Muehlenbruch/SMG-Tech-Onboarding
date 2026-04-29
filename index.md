@@ -30,7 +30,9 @@ Außerdem muss der **Admin** vorher folgende Einladungen rausschicken:
 | 1 | [Vorab](01-vorab.html) | Arbeitsordner anlegen, Node.js & Command Line Tools installieren |
 | 2 | [GitHub](02-github.html) | Account, GitHub Desktop, Test-Repo, GitHub-CLI für Auth |
 | 3 | [Claude KI](03-claude.html) | Account, Claude Desktop, MCPs einrichten |
-| 4 | [Test & erste Nutzung](04-test-und-erste-nutzung.html) | Verbindungen prüfen, Test-Aufgabe ausführen, Push verifizieren |
+| 4 | [Test GitHub/Claude](04-test-und-erste-nutzung.html) | Verbindungen prüfen, Test-Aufgabe ausführen, Push verifizieren |
+| 5 | [Vercel](05-vercel.html) | Account, Firmen-Team, GitHub-Anbindung, V0, Vercel-Konnektor in Claude |
+| 6 | [Test Vercel/Claude](06-test-vercel-claude.html) | Konnektor prüfen, Build-Status zum Push aus 4.4 abrufen |
 
 ---
 
@@ -43,6 +45,7 @@ Außerdem muss der **Admin** vorher folgende Einladungen rausschicken:
 - [Filesystem MCP](software/filesystem-mcp.html)
 - [GitHub Connection](software/github-connection.html)
 - [GitHub CLI (`gh`)](software/github-cli.html)
+- [Vercel (+ V0)](software/vercel.html)
 
 ---
 

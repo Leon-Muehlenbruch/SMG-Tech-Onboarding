@@ -1,6 +1,6 @@
 ---
 title: Software-Referenz
-nav_order: 6
+nav_order: 8
 has_children: true
 permalink: /software/
 ---
@@ -20,5 +20,6 @@ Detailseiten zu allen Tools, die im Onboarding installiert werden. Diese Seiten 
 | [Filesystem MCP](filesystem-mcp.html) | Gibt Claude Zugriff auf den Arbeitsordner | Konnektor in Claude Desktop |
 | [GitHub Connection](github-connection.html) | Gibt Claude Zugriff auf GitHub-Repos | Konnektor in Claude Desktop |
 | [GitHub CLI (`gh`)](github-cli.html) | Authentifiziert den Mac gegenüber GitHub (für `git push`) | systemweit |
+| [Vercel (+ V0)](vercel.html) | Hosting-Plattform, deployt Sites automatisch bei jedem Push | Web + Konnektor in Claude Desktop |
 
 Die Reihenfolge in der Sidebar entspricht der Installationsreihenfolge im Workflow.

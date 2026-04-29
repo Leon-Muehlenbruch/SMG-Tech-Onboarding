@@ -1,9 +1,9 @@
 ---
-title: 4. Test & erste Nutzung
+title: 4. Test GitHub/Claude
 nav_order: 5
 ---
 
-# Kapitel 4 – Test & erste Nutzung
+# Kapitel 4 – Test GitHub/Claude
 
 ---
 
@@ -81,4 +81,4 @@ Da die GitHub-Authentifizierung bereits in [Schritt 2.6](02-github.html#26-githu
 2. Im Reiter **„Code"** prüfen, ob die Datei aus 4.3 erschienen ist.
 3. Im Reiter **„Commits"** den frisch gepushten Commit mit deinem Namen finden.
 
-🎉 **Wenn das alles klappt, ist das Setup erfolgreich abgeschlossen.**
+✅ Damit funktioniert der Loop **GitHub ↔ Claude**. Weiter geht's mit **Vercel** in [Kapitel 5](05-vercel.html).

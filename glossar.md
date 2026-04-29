@@ -1,6 +1,6 @@
 ---
 title: Glossar
-nav_order: 7
+nav_order: 9
 ---
 
 # Glossar
@@ -103,6 +103,31 @@ Vorkonfigurierte Fähigkeit, die der Admin auf Org-Ebene bereitstellt – etwa f
 
 **Claude Chat vs. Claude Code**
 Siehe [3.5 in Kapitel 3](03-claude.html#35-claude-chat-vs-claude-code--kurz-erklärt).
+
+---
+
+## Vercel
+
+**Deployment**
+Eine konkrete Build-Version, die Vercel ausgespielt hat. Jeder Push erzeugt ein neues Deployment.
+
+**Production**
+Die Live-Version unter der Haupt-Domain. Wird durch Push auf `main` aktualisiert.
+
+**Preview**
+Automatisch generierte URL pro Branch oder PR – für Tests, ohne die Live-Site zu beeinflussen.
+
+**Build**
+Vorgang, bei dem Vercel aus dem Repo eine ausführbare Web-Version baut.
+
+**Build-Logs**
+Die Konsolenausgabe des Builds. Zeigt Schritt für Schritt, was passiert ist – wichtig bei Fehlersuche.
+
+**V0**
+Vercels AI-Tool unter <https://v0.dev>. Generiert kleine Web-Apps aus Text-Prompts. V0-Projekte laufen direkt auf Vercel, ohne dass es ein GitHub-Repo dazu gibt.
+
+**Workspace (Vercel)**
+Account-Gruppierung in Vercel. Es gibt einen persönlichen Free-Workspace und den Firmen-Workspace `SawatzkiMühlenbruch GmbH`. SMG-Projekte gehören in den Firmen-Workspace.
 
 ---
 
