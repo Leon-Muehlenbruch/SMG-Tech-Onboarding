@@ -4,7 +4,7 @@ layout: home
 nav_order: 1
 ---
 
-# SMG Tech-Onboarding
+# SMG KI Setup
 
 ---
 

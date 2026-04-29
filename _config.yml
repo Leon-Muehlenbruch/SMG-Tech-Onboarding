@@ -1,4 +1,4 @@
-title: SMG Tech-Onboarding
+title: SMG KI Setup
 description: Workflow zur Einrichtung von Mitarbeiter-Laptops bei der SawatzkiMühlenbruch GmbH
 remote_theme: just-the-docs/just-the-docs
 plugins:
@@ -8,6 +8,6 @@ search_enabled: true
 heading_anchors: true
 aux_links:
   "Repo auf GitHub":
-    - "https://github.com/Leon-Muehlenbruch/SMG-Tech-Onboarding"
+    - "https://github.com/Leon-Muehlenbruch/SMG-KI-Setup"
 aux_links_new_tab: true
 footer_content: "SawatzkiMühlenbruch GmbH – internes Onboarding-Material"
