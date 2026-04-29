@@ -5,8 +5,6 @@ nav_order: 5
 
 # Kapitel 4 – Test & erste Nutzung
 
-Wir verifizieren, dass alle Komponenten miteinander reden, und führen den ersten echten Roundtrip aus: Aufgabe an Claude → Code-Änderung → Push auf GitHub.
-
 ---
 
 ## 4.1 Verbindungen im Chat prüfen
@@ -60,75 +58,9 @@ Bestätigen, bis die Datei lokal angelegt/geändert ist.
 
 ---
 
-## 4.4 GitHub-Authentifizierung einrichten (GitHub CLI)
+## 4.4 Pushen via Claude Code
 
-Damit Claude Code beim Pushen auf das Remote-Repo schreiben darf, brauchen wir eine **lokale Git-Authentifizierung am Mac**. Wir nutzen dafür die offizielle **GitHub CLI** (`gh`).
-
-> **🔑 Wichtig zu verstehen: Was wird hier eigentlich autorisiert?**
->
-> Wir autorisieren in diesem Schritt **den Mac selbst** gegenüber GitHub – **nicht Claude direkt**.
->
-> | Schritt | Was wird autorisiert? | Wofür? |
-> |---|---|---|
-> | [3.7 GitHub-Connection](03-claude.html#37-github-connection-einrichten) | **Claude** (die App) | Lesen von Repos, Issues, PRs *im Chat* |
-> | **4.4 GitHub-CLI (`gh`)** | **Dieser Mac** (lokales Git) | Schreibende Git-Operationen wie `git push` |
->
-> Claude Code nutzt für Git-Operationen schlicht den **lokalen Git-Stack** auf deinem Mac. Sobald der mit GitHub verbunden ist (über die Schlüsselbund-Anbindung von `gh`), kann Claude pushen, indem er einfach `git push` aufruft – und das verwendet automatisch die Credentials deines PCs. Claude muss dafür **kein eigenes GitHub-Passwort und keinen eigenen Token bekommen**.
->
-> Das ist sicherheitstechnisch der saubere Weg: Tokens wandern nicht durch die KI, sondern liegen ausschließlich im macOS-Schlüsselbund.
-
-### a) GitHub CLI installieren
-
-1. Browser → <https://github.com/cli/cli/releases/latest>
-2. Im Abschnitt **„Assets"** die passende Datei laden:
-   - Apple-Silicon-Mac (M1/M2/M3/M4): `gh_*_macOS_arm64.pkg`
-   - Intel-Mac: `gh_*_macOS_amd64.pkg`
-3. `.pkg`-Datei doppelklicken und Installer durchklicken.
-4. Im Terminal verifizieren:
-
-   ```bash
-   gh --version
-   ```
-
-### b) Authentifizierung durchführen
-
-Im Terminal eingeben:
-
-```bash
-gh auth login
-```
-
-Im interaktiven Dialog der Reihe nach auswählen:
-
-1. **GitHub.com**
-2. Protokoll: **HTTPS**
-3. „Authenticate Git with your GitHub credentials?" → **Y**
-4. „How would you like to authenticate?" → **Login with a web browser**
-5. Den angezeigten 8-stelligen Code merken → Enter drücken → der Browser öffnet sich → Code eintragen → Account-Autorisierung bestätigen.
-
-### c) Verifizieren
-
-```bash
-gh auth status
-```
-
-Erwartete Ausgabe (sinngemäß):
-
-```
-github.com
-  ✓ Logged in to github.com as <dein-username>
-  ✓ Git operations for github.com configured to use https protocol.
-```
-
-### Was passiert da technisch?
-
-`gh` legt einen OAuth-Token im **macOS-Schlüsselbund** ab und konfiguriert `git` so, dass jede Verbindung zu github.com automatisch diesen Token verwendet. Du musst dich nie wieder einloggen oder Tokens manuell verwalten – auch nicht nach einem Reboot.
-
-Mehr Details siehe [Software-Referenz: GitHub CLI](software/github-cli.html).
-
----
-
-## 4.5 Pushen via Claude Code
+Da die GitHub-Authentifizierung bereits in [Schritt 2.6](02-github.html#26-github-cli-installieren-und-authentifizieren) eingerichtet wurde, kann Claude Code direkt pushen.
 
 1. Im Code-Tab eingeben:
 
@@ -143,22 +75,10 @@ Mehr Details siehe [Software-Referenz: GitHub CLI](software/github-cli.html).
 
 ---
 
-## 4.6 Push auf GitHub verifizieren
+## 4.5 Push auf GitHub verifizieren
 
 1. Browser → <https://github.com/SawatzkiMühlenbruchGmbH/SMG-Test_repository>
 2. Im Reiter **„Code"** prüfen, ob die Datei aus 4.3 erschienen ist.
 3. Im Reiter **„Commits"** den frisch gepushten Commit mit deinem Namen finden.
 
 🎉 **Wenn das alles klappt, ist das Setup erfolgreich abgeschlossen.**
-
----
-
-## ✅ Abschluss-Check Gesamt-Setup
-
-- [ ] Claude erkennt Filesystem & GitHub im Chat
-- [ ] Test-Projekt in Claude Code angelegt
-- [ ] Test-Aufgabe ausgeführt, Datei lokal verändert
-- [ ] GitHub-Auth eingerichtet
-- [ ] Push erfolgreich auf github.com sichtbar
-
-Bei Problemen → Admin oder [Software-Referenz](software/) konsultieren.

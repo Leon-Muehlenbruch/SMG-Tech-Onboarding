@@ -5,30 +5,23 @@ nav_order: 4
 
 # Kapitel 3 – Claude KI
 
-Claude ist die KI, mit der wir täglich arbeiten – sowohl im klassischen Chat als auch direkt im Code.
-
 ---
 
 ## 3.1 Claude-Account erstellen
 
 1. Browser → <https://claude.ai/>
 2. **„Sign up"** klicken.
-3. Account mit der **persönlichen E-Mail-Adresse** erstellen.
+3. Account mit der **Firmen-E-Mail-Adresse** erstellen.
 4. Bestätigungs-Code aus der E-Mail eintragen.
 5. Profilangaben ausfüllen.
 
-> **Warum die persönliche Mail?**
-> Die Anthropic-Lizenzen sind so eingerichtet, dass private Accounts vom Admin in die Firmen-Organisation aufgenommen werden. Sobald das passiert ist, sind Firmen-spezifische **Skills automatisch verfügbar**.
-
 ---
 
-## 3.2 Vom Admin zur Organisation hinzufügen lassen
+## 3.2 Workspace prüfen
 
-1. Dem Admin per Slack/Mail mitteilen: *„Ich habe meinen Claude-Account angelegt unter `<deine.persönliche@mail>`. Bitte zur Organisation hinzufügen."*
-2. Auf die Bestätigung warten.
-3. Nach der Bestätigung: einmal aus Claude ausloggen und wieder einloggen, damit die Organisations-Zuordnung greift.
+Der Admin hat deinen Account vorab zur Organisation hinzugefügt. Beim ersten Login solltest du oben links den Workspace **SawatzkiMühlenbruch GmbH** bereits ausgewählt sehen – über diesen Workspace sind die firmenspezifischen Skills automatisch verfügbar.
 
-Du erkennst das daran, dass oben links im Workspace-Switcher die Organisation **SawatzkiMühlenbruch GmbH** auftaucht.
+> **Falls der Workspace nicht erscheint:** Admin Bescheid geben.
 
 ---
 
@@ -89,7 +82,13 @@ Mehr Details siehe [Software-Referenz: Filesystem MCP](software/filesystem-mcp.h
 
 Damit Claude im Chat Repos auflisten, Issues lesen und PRs sehen kann.
 
-> **Hinweis:** Diese Connection gibt **Claude** lesenden GitHub-Zugriff. Sie ist **nicht dasselbe** wie die GitHub-Authentifizierung des Mac (siehe [Schritt 4.4](04-test-und-erste-nutzung.html#44-github-authentifizierung-einrichten-github-cli)), die später für `git push` benötigt wird.
+> **🔑 Was wird hier autorisiert?**
+> An dieser Stelle bekommt **Claude (die App)** lesenden Zugriff auf GitHub. Das ist **etwas anderes** als die Mac-Authentifizierung aus [Schritt 2.6](02-github.html#26-github-cli-installieren-und-authentifizieren), die fürs Pushen aus dem Terminal nötig war.
+>
+> | Schritt | Was wird autorisiert? | Wofür? |
+> |---|---|---|
+> | [2.6 GitHub CLI](02-github.html#26-github-cli-installieren-und-authentifizieren) | **Dieser Mac** (lokales Git) | Schreibende Git-Operationen wie `git push` |
+> | **3.7 GitHub-Connection** | **Claude** (die App) | Lesen von Repos, Issues, PRs *im Chat* |
 
 1. In Claude Desktop → **Einstellungen** → **Connectors**.
 2. Konnektor **„GitHub"** suchen und **„Connect"** klicken.
@@ -107,16 +106,3 @@ Damit beide Konnektoren sicher geladen werden:
 
 1. Cmd + Q → Claude komplett beenden.
 2. Claude erneut über Spotlight starten.
-
----
-
-## ✅ Abschluss-Check
-
-- [ ] Claude-Account angelegt
-- [ ] Account vom Admin in die Organisation aufgenommen
-- [ ] Claude Desktop installiert, eingeloggt, Workspace `SawatzkiMühlenbruch GmbH` ausgewählt
-- [ ] Filesystem-MCP zeigt auf `~/Documents/Github`
-- [ ] GitHub-Connection ist verbunden
-- [ ] Claude Desktop neugestartet
-
-Weiter geht's mit **[Kapitel 4 – Test & erste Nutzung](04-test-und-erste-nutzung.html)**.

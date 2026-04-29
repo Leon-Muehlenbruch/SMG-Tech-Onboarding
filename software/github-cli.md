@@ -32,7 +32,7 @@ Sehr häufige Verwechslung – darum nochmal in Klartext:
 | Autorisierung | Eingerichtet in | Wirkt für | Erlaubt |
 |---|---|---|---|
 | **GitHub-Connection** | Claude Desktop ([3.7](../03-claude.html#37-github-connection-einrichten)) | Claude (die App) | Lesen von Repos/Issues/PRs **im Chat** |
-| **`gh auth login`** | Terminal ([4.4](../04-test-und-erste-nutzung.html#44-github-authentifizierung-einrichten-github-cli)) | Dein Mac (lokales Git) | Alle Git-Operationen, inkl. `push` |
+| **`gh auth login`** | Terminal ([2.6](../02-github.html#26-github-cli-installieren-und-authentifizieren)) | Dein Mac (lokales Git) | Alle Git-Operationen, inkl. `push` |
 
 Beide sind nötig, aber sie machen unterschiedliche Dinge.
 

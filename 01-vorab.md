@@ -21,10 +21,6 @@ Auf Deutsch: **Benutzer → Dokumente → Github**.
 
 Dieser Ordner wird der **zentrale Ort für alle Repositories** und gleichzeitig der einzige Ordner, auf den die KI später Zugriff bekommt.
 
-> **⚠️ Wichtig für Mitarbeitende:**
-> Alle Dateien, die in diesem Ordner liegen (oder in Unterordnern), können später von Claude gelesen und bearbeitet werden. Lege also **keine vertraulichen privaten Dokumente** dort ab.
-> Umgekehrt: Wenn du möchtest, dass Claude mit einer Datei arbeitet, **muss** sie in diesem Ordner liegen.
-
 ---
 
 ## 1.2 Node.js installieren
@@ -69,15 +65,3 @@ Die Apple Command Line Tools liefern u. a. `git` und Compiler, die einige Tools 
    Es sollte eine Versionsnummer angezeigt werden.
 
 Mehr Details siehe [Software-Referenz: Command Line Tools](software/command-line-tools.html).
-
----
-
-## ✅ Abschluss-Check
-
-Bevor du zum nächsten Kapitel gehst, prüfe:
-
-- [ ] Ordner `~/Documents/Github` existiert
-- [ ] `node --version` funktioniert im Terminal
-- [ ] `git --version` funktioniert im Terminal
-
-Weiter geht's mit **[Kapitel 2 – GitHub](02-github.html)**.

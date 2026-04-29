@@ -14,7 +14,7 @@ GitHub ist die Plattform, auf der wir unsere Projekte (Repositories) speichern u
 1. Browser öffnen → <https://github.com/signup>
 2. Account mit der **Firmen-E-Mail-Adresse** erstellen.
 3. Passwort wählen (Passwortmanager empfohlen).
-4. Username vergeben – idealerweise nach dem Schema `vorname-nachname-smg`.
+4. Username vergeben (z. B. `vorname-nachname-smg`).
 5. Den Bestätigungs-Code aus der E-Mail eintragen.
 
 > **Hinweis:** Für den persönlichen Workspace reicht der kostenlose Plan. Die Firmenfunktionen kommen über die Organisation.
@@ -23,16 +23,15 @@ GitHub ist die Plattform, auf der wir unsere Projekte (Repositories) speichern u
 
 ## 2.2 Org-Einladung annehmen
 
-Der Admin hat dir vorab eine Einladung zur Organisation **SawatzkiMühlenbruch GmbH** geschickt.
+Der Admin hat dich vorab zur Organisation **SawatzkiMühlenbruch GmbH** eingeladen. Die Einladung wird direkt in GitHub angezeigt — ein E-Mail-Client ist nicht nötig.
 
-1. Postfach der Firmen-E-Mail öffnen.
-2. E-Mail von GitHub mit dem Betreff *„… invited you to … SawatzkiMühlenbruch GmbH"* öffnen.
-3. Auf **„Join @SawatzkiMühlenbruchGmbH"** klicken.
-4. Im Browser bestätigen.
+1. Im Browser auf <https://github.com/> einloggen.
+2. Oben rechts auf das Profilbild → **„Your organizations"**.
+3. Bei **SawatzkiMühlenbruch GmbH** auf **„Join"** klicken.
 
 Du landest danach auf der Organisations-Seite und solltest dort als Mitglied gelistet sein.
 
-> **Falls die E-Mail nicht angekommen ist:** Spam-Ordner prüfen, sonst Admin Bescheid geben.
+> **Falls keine Einladung angezeigt wird:** Admin Bescheid geben.
 
 ---
 
@@ -77,11 +76,54 @@ Nach wenigen Sekunden ist das Repository lokal vorhanden.
 
 ---
 
-## ✅ Abschluss-Check
+## 2.6 GitHub-CLI installieren und authentifizieren
 
-- [ ] GitHub-Account mit Firmen-Mail aktiv
-- [ ] Mitglied der Organisation `SawatzkiMühlenbruch GmbH`
-- [ ] GitHub Desktop installiert und eingeloggt
-- [ ] Repo `SMG-Test_repository` liegt unter `~/Documents/Github/SMG-Test_repository`
+GitHub Desktop bringt seine eigene Authentifizierung mit – fürs **Klonen** über die App reicht das. Für spätere `git push`-Operationen aus dem Terminal (z. B. wenn Claude Code Änderungen hochladen soll) brauchen wir zusätzlich eine **systemweite Git-Authentifizierung**. Dafür nutzen wir die offizielle **GitHub CLI** (`gh`).
 
-Weiter geht's mit **[Kapitel 3 – Claude KI](03-claude.html)**.
+> **🔑 Wichtig zu verstehen:**
+> Wir autorisieren in diesem Schritt **den Mac selbst** gegenüber GitHub – nicht Claude direkt. Sobald der lokale Git mit GitHub verbunden ist (über den macOS-Schlüsselbund), kann jedes Tool, das `git push` aufruft – auch Claude Code – diese Verbindung nutzen, ohne ein eigenes Passwort oder einen eigenen Token zu sehen.
+
+### a) GitHub CLI installieren
+
+1. Browser → <https://github.com/cli/cli/releases/latest>
+2. Im Abschnitt **„Assets"** die passende Datei laden:
+   - Apple-Silicon-Mac (M1/M2/M3/M4): `gh_*_macOS_arm64.pkg`
+   - Intel-Mac: `gh_*_macOS_amd64.pkg`
+3. `.pkg`-Datei doppelklicken und Installer durchklicken.
+4. Im Terminal verifizieren:
+
+   ```bash
+   gh --version
+   ```
+
+### b) Authentifizierung durchführen
+
+Im Terminal eingeben:
+
+```bash
+gh auth login
+```
+
+Im interaktiven Dialog der Reihe nach auswählen:
+
+1. **GitHub.com**
+2. Protokoll: **HTTPS**
+3. „Authenticate Git with your GitHub credentials?" → **Y**
+4. „How would you like to authenticate?" → **Login with a web browser**
+5. Den angezeigten 8-stelligen Code merken → Enter drücken → der Browser öffnet sich → Code eintragen → Account-Autorisierung bestätigen.
+
+### c) Verifizieren
+
+```bash
+gh auth status
+```
+
+Erwartete Ausgabe (sinngemäß):
+
+```
+github.com
+  ✓ Logged in to github.com as <dein-username>
+  ✓ Git operations for github.com configured to use https protocol.
+```
+
+Mehr Details siehe [Software-Referenz: GitHub CLI](software/github-cli.html).
