@@ -61,6 +61,11 @@ Mehr Details siehe [Software-Referenz: GitHub Desktop](software/github-desktop.h
 
 ## 2.5 Test-Repository klonen
 
+> **Warum überhaupt lokal arbeiten, wenn die Daten doch auf GitHub liegen?**
+> Auf GitHub liegt die *offizielle* Version eines Repositories – das ist der gemeinsame Speicher- und Austauschort fürs Team. Bearbeitet wird aber immer eine **lokale Kopie** auf deinem Mac. Werkzeuge wie Claude Code, Editoren oder das Terminal arbeiten direkt mit Dateien im Dateisystem, nicht mit der GitHub-Weboberfläche. Du machst lokal deine Änderungen, kannst sie ausprobieren, bevor jemand sie sieht – und schickst sie erst per `commit` + `push` zurück nach GitHub.
+>
+> Kurz: **GitHub = Lager**, **lokales Verzeichnis = Werkstatt**.
+
 1. In GitHub Desktop oben links auf **„Current Repository"** → **„Clone repository…"**
 2. Im Tab **„GitHub.com"** das Repo `SawatzkiMühlenbruchGmbH/SMG-Test_repository` auswählen.
 3. **Wichtig:** Den Pfad belassen auf
