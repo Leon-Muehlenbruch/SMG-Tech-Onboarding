@@ -101,8 +101,11 @@ Anthropics Begriff für eine Account-Gruppierung. Es gibt einen persönlichen Wo
 **Skill**
 Vorkonfigurierte Fähigkeit, die der Admin auf Org-Ebene bereitstellt – etwa firmenspezifische Workflows.
 
-**Claude Chat vs. Claude Code**
-Siehe [3.5 in Kapitel 3](03-claude.html#35-claude-chat-vs-claude-code--kurz-erklärt).
+**Claude Chat vs. Claude Code vs. Cowork**
+Drei Wege, mit Claude zu arbeiten. Siehe [3.5 in Kapitel 3](03-claude.html#35-claude-chat-claude-code-und-cowork--kurz-erklärt).
+
+**Cowork**
+Cloud-Sandbox auf claude.ai, in der Claude längere agentische Aufgaben remote ausführt – ähnlich Claude Code, aber bei Anthropic gehostet statt lokal.
 
 ---
 

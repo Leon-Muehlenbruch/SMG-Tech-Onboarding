@@ -45,16 +45,35 @@ Mehr Details siehe [Software-Referenz: Claude Desktop](software/claude-desktop.h
 
 ---
 
-## 3.5 Claude Chat vs. Claude Code – kurz erklärt
+## 3.5 Claude Chat, Claude Code und Cowork – kurz erklärt
 
-| | Claude Chat | Claude Code |
-|---|---|---|
-| **Wofür** | Allgemeine Fragen, Texte, Recherche, Brainstorming | Arbeit an Code-Projekten, Dateien lesen/ändern, Git-Operationen |
-| **Wo** | Hauptfenster der Claude-App, oder im Browser | Eigenes Fenster in der Claude-App ("Code"-Tab) |
-| **Dateizugriff** | Nur über MCPs (Filesystem, GitHub …) | Direkt im gewählten Projekt-Ordner |
-| **Wann nutzen** | „Erkläre mir X", „Formuliere eine Mail …" | „Bearbeite die Datei Y", „Pushe meine Änderungen" |
+Anthropic bietet drei Wege, mit Claude zu arbeiten. Wichtig zu verstehen, weil sie unterschiedlich funktionieren – auch was Konnektoren angeht.
 
-**Faustregel:** Wenn die Antwort eine Datei verändern oder etwas im Repo machen soll → Claude Code. Sonst → Claude Chat.
+| | Claude Chat | Claude Code | Cowork |
+|---|---|---|---|
+| **Wofür** | Allgemeine Fragen, Texte, Recherche, Brainstorming | Arbeit an Code-Projekten, Dateien lesen/ändern, Git-Operationen | Längere, agentische Aufgaben in einer Cloud-Sandbox |
+| **Wo** | Hauptfenster der Claude-App / Browser | „Code"-Tab in der App bzw. CLI im Terminal | Im Browser auf <https://claude.ai> (Tab „Cowork") |
+| **Wo läuft's** | Anthropic-Cloud (kein Systemzugriff) | Lokal auf deinem Mac | Remote-Sandbox bei Anthropic |
+| **Dateizugriff** | Nur über MCPs (Filesystem, GitHub …) | Direkt im gewählten Projekt-Ordner | Eigener Sandbox-Workspace (Repo wird geklont) |
+| **Wann nutzen** | „Erkläre mir X", „Formuliere eine Mail …" | „Bearbeite Datei Y", „Pushe meine Änderungen" | „Lass das im Hintergrund laufen, ohne meinen Mac zu blockieren" |
+
+**Faustregel:**
+- Reine Text-Antwort → **Chat**
+- Lokale Datei oder Repo ändern → **Code**
+- Längere Aufgabe parallel laufen lassen → **Cowork**
+
+### MCPs und Konnektoren – was funktioniert wo?
+
+Konnektoren laufen nicht in allen drei Umgebungen gleich:
+
+| | Chat | Code | Cowork |
+|---|---|---|---|
+| Eingebauter **GitHub-Konnektor** (siehe 3.7) | ✅ | – nicht nötig, nutzt `gh` CLI direkt | – nutzt eigenes OAuth-Plugin |
+| **Filesystem-MCP** (siehe 3.6) | ✅ (sonst kein Dateizugriff) | – nicht nötig (lokaler Zugriff) | – nicht nötig (Sandbox-Workspace) |
+| **Custom MCPs** (Vercel, Supabase …) | ✅ über *Connectors*-Panel | ✅ über `.mcp.json` / `claude mcp add` | ✅ über Cowork-Einstellungen |
+| **Engineering-Plugins** (Linear, Jira, Notion …) | – | ✅ über `/plugin` | ✅ vorinstalliert |
+
+**Kurz gesagt:** Die in 3.6 und 3.7 eingerichteten Konnektoren sind primär für den **Chat** gedacht. In **Code** brauchst du sie meist nicht, weil dort direkter Datei-Zugriff besteht und GitHub über die `gh` CLI aus [Schritt 2.6](02-github.html#26-github-cli-installieren-und-authentifizieren) läuft. **Cowork** bringt eigene Plugins mit und konfiguriert MCPs separat.
 
 ---
 
