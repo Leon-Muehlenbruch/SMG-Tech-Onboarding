@@ -21,6 +21,18 @@ Auf Deutsch: **Benutzer → Dokumente → Github**.
 
 Dieser Ordner wird der **zentrale Ort für alle Repositories** und gleichzeitig der einzige Ordner, auf den die KI später Zugriff bekommt.
 
+### Warum überhaupt lokal? Geht das nicht direkt auf github.com?
+
+Eine berechtigte Frage – schließlich landen die Änderungen am Ende sowieso wieder online. Trotzdem brauchen wir eine lokale Kopie:
+
+- **Git ist ein lokales Werkzeug.** GitHub ist „nur" der Server, auf dem die finale Version liegt. Bearbeitet wird grundsätzlich lokal, dann mit `git push` zurück synchronisiert. Das Modell ist: *editieren → committen → pushen*, nicht „live im Browser tippen".
+- **Claude Code (und andere KI-Tools) brauchen direkten Datei-Zugriff.** Sie lesen und ändern Dateien auf der Festplatte – nicht über die GitHub-Weboberfläche. Ohne lokalen Ordner kein Claude Code.
+- **Schnelles Ausprobieren.** Lokal kannst du Änderungen sofort starten, testen und wieder verwerfen, ohne dass jeder Zwischenstand auf GitHub auftaucht. Erst wenn etwas funktioniert, wird es hochgeladen.
+- **Mehrere Änderungen sauber bündeln.** Du kannst lokal an mehreren Dateien arbeiten und das Ganze als *einen* sinnvollen Commit pushen, statt für jede Kleinigkeit einen Online-Edit zu machen.
+- **Offline-fähig.** Im Zug, im Hotel-WLAN, bei kaputter Internetverbindung – lokal arbeiten geht trotzdem.
+
+Direktes Editieren auf github.com (über das Stift-Symbol) ist daher nur für **Mini-Korrekturen** gedacht, etwa einen Tippfehler im README. Alles andere – Code, mehrere Dateien, KI-Unterstützung – passiert lokal in diesem Ordner.
+
 ---
 
 ## 1.2 Node.js installieren
