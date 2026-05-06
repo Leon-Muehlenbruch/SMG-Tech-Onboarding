@@ -50,4 +50,45 @@ Faustregel: Wo **Filter über mehrere Center** im Spiel sind, nimm den Skill.
 
 ---
 
+## 7.4 Permission-Prompts in Claude Code reduzieren
+
+Claude Code (CLI/Desktop-Tab „Code") fragt bei „heiklen" Aktionen jedes Mal um Bestätigung – z. B. bei `git push` auf `main`, beim Löschen von Dateien oder Branches, beim Ändern von Settings. Das ist eine Sicherheitsfunktion, die vor versehentlichen Aktionen schützt. In Solo-Repos oder bei häufig wiederkehrenden Befehlen kann das aber bremsen.
+
+### Gezielt einzelne Befehle vorab erlauben
+
+1. Datei öffnen (anlegen, falls nicht vorhanden):
+
+   ```
+   ~/.claude/settings.json
+   ```
+
+2. Inhalt ergänzen (oder bestehendes `permissions.allow`-Array erweitern):
+
+   ```json
+   {
+     "permissions": {
+       "allow": [
+         "Bash(git push:*)",
+         "Bash(git commit:*)"
+       ]
+     }
+   }
+   ```
+
+3. Claude Code neustarten.
+
+Ab jetzt laufen diese Befehle ohne Rückfrage durch.
+
+> **⚠️ Vorsicht:** Jede in `allow` aufgenommene Aktion läuft ohne Bestätigung. Nimm nur Befehle auf, deren Auswirkungen du kennst und akzeptierst – besonders bei `git push`, `rm` oder Schreiboperationen außerhalb des Projektordners. **Niemals** breite Wildcards wie `Bash(*)` eintragen.
+
+### Automatischen Vorschlag nutzen
+
+Im Claude-Code-Terminal kannst du den Slash-Command `/fewer-permission-prompts` ausführen. Er scannt deinen bisherigen Verlauf nach unkritischen Read-only-Bash-Calls und schlägt eine passende Allowlist vor – du musst sie nur noch bestätigen.
+
+### Self-Modification-Schutz
+
+Claude Code bearbeitet **keine eigenen Sicherheits-Settings**, auch nicht auf Anweisung. Schritt 1–3 oben musst du immer selbst machen – das ist gewollt und kein Bug.
+
+---
+
 > Diese Seite wächst, sobald weitere SMG-spezifische KI-Features freigeschaltet werden.
