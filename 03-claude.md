@@ -45,16 +45,33 @@ Mehr Details siehe [Software-Referenz: Claude Desktop](software/claude-desktop.h
 
 ---
 
-## 3.5 Claude Chat vs. Claude Code – kurz erklärt
+## 3.5 Claude Chat vs. Claude Code vs. Cowork – kurz erklärt
 
-| | Claude Chat | Claude Code |
-|---|---|---|
-| **Wofür** | Allgemeine Fragen, Texte, Recherche, Brainstorming | Arbeit an Code-Projekten, Dateien lesen/ändern, Git-Operationen |
-| **Wo** | Hauptfenster der Claude-App, oder im Browser | Eigenes Fenster in der Claude-App ("Code"-Tab) |
-| **Dateizugriff** | Nur über MCPs (Filesystem, GitHub …) | Direkt im gewählten Projekt-Ordner |
-| **Wann nutzen** | „Erkläre mir X", „Formuliere eine Mail …" | „Bearbeite die Datei Y", „Pushe meine Änderungen" |
+| | Claude Chat | Claude Code | Cowork |
+|---|---|---|---|
+| **Wofür** | Allgemeine Fragen, Texte, Recherche, Brainstorming | Arbeit an Code-Projekten, Dateien lesen/ändern, Git-Operationen | Geführte, rollenbasierte Workflows mit vorkonfigurierten Tools |
+| **Wo** | Hauptfenster der Claude-App, oder im Browser | Eigenes Fenster in der Claude-App ("Code"-Tab) oder Terminal (`claude`) | Eigene Cowork-Session in der Claude-App / im Browser |
+| **Dateizugriff** | Nur über Konnektoren (Filesystem, GitHub …) | Direkt im gewählten Projekt-Ordner (lesen + schreiben) | Über Plugins/Konnektoren innerhalb der Session |
+| **Wann nutzen** | „Erkläre mir X", „Formuliere eine Mail …" | „Bearbeite die Datei Y", „Pushe meine Änderungen" | „Richte mir Setup X ein", Plugin-gestützte Routinen |
 
-**Faustregel:** Wenn die Antwort eine Datei verändern oder etwas im Repo machen soll → Claude Code. Sonst → Claude Chat.
+**Faustregel:** Wenn die Antwort eine Datei verändern oder etwas im Repo machen soll → Claude Code. Für freie Fragen → Claude Chat. Für vorgefertigte, geführte Abläufe mit Plugins → Cowork.
+
+### Konnektoren & Erweiterungen pro Modus
+
+Die gleiche Erweiterung kann je nach Modus **unterschiedlich viel können**. Beispiel: Der GitHub-Konnektor kann im Chat nur lesen, in Claude Code aber auch schreibend agieren (PRs erstellen, mergen …).
+
+| Erweiterung | Claude Chat | Claude Code | Cowork |
+|---|---|---|---|
+| **GitHub** | Lesen: Repos, Issues, PRs | **Voll**: lesen + schreiben (PRs erstellen/kommentieren/mergen) via `gh` CLI + Konnektor | Lesen + Aktionen je nach installiertem Plugin |
+| **Filesystem** | Lesen auf konfigurierte Pfade | Direkt im Arbeitsverzeichnis (lesen/schreiben/editieren) | Sandbox-Verzeichnis der Session |
+| **Vercel** | Konnektor: Projekte/Deployments einsehen | Konnektor + `vercel` CLI: Deployments triggern, Logs ziehen | Konnektor via Plugin |
+| **Custom MCP-Server** | Ja, via Einstellungen → Connectors | Ja, via `claude mcp add` oder Plugin | Ja, gebündelt in Plugins |
+| **Skills** | Org-Skills über Workspace (siehe [Kapitel 7](07-weitere-ki-features.html)) | Skills aus Plugins / Marketplace | Skills aus Cowork-Plugins |
+| **Plugins** | – | Marketplace + eigene Plugins | Cowork-Marketplace, rollenbasiert |
+| **Bash / Terminal** | – | Ja, im Projektordner | Eingeschränkt, je nach Plugin-Sandbox |
+| **Subagents / Hooks / Slash-Commands** | – | Ja (Claude-Code-spezifisch) | Über Plugins, je nach Konfiguration |
+
+> **Merksatz:** Konnektor-Name ≠ Konnektor-Funktionsumfang. Vor allem beim **GitHub-Konnektor** lohnt der Blick: Was im Chat nur gelesen wird, lässt sich in **Claude Code** auch verändern.
 
 ---
 
